@@ -1,0 +1,296 @@
+2026-09-04 15:18:30Z  === Despliegue de v15 (instalada ahora: v14) ===
+2026-09-04 15:18:30Z  Intento 1 de 3
+2026-09-04 15:18:30Z  Descargando voip-platform-v15.tar.gz
+2026-09-04 15:18:31Z  Descargado: 193990 bytes
+2026-09-04 15:18:31Z  Paquete verificado.
+2026-09-04 15:18:31Z  Ficheros actualizados.
+2026-09-04 15:18:31Z  Reconstruyendo contenedores (puede tardar varios minutos)...
+time="2026-09-04T15:18:31Z" level=warning msg="Docker Compose is configured to build using Bake, but buildx isn't installed"
+#0 building with "default" instance using docker driver
+
+#1 [freeswitch internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.09kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 670B done
+#2 DONE 0.0s
+
+#3 [freeswitch internal] load metadata for docker.io/safarov/freeswitch:latest
+#3 DONE 0.0s
+
+#4 [freeswitch internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [freeswitch 1/4] FROM docker.io/safarov/freeswitch:latest@sha256:b31c743f4c911a19687c61e3214968f2a24f93f9d3d667cc26284192e158ffc6
+#5 resolve docker.io/safarov/freeswitch:latest@sha256:b31c743f4c911a19687c61e3214968f2a24f93f9d3d667cc26284192e158ffc6 done
+#5 DONE 0.0s
+
+#6 [freeswitch internal] load build context
+#6 transferring context: 1.03kB done
+#6 DONE 0.0s
+
+#7 [freeswitch 2/4] COPY conf/ /opt/plataforma-conf/
+#7 CACHED
+
+#8 [freeswitch 3/4] COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+#8 CACHED
+
+#9 [freeswitch 4/4] RUN chmod +x /usr/local/bin/entrypoint.sh
+#9 CACHED
+
+#10 [freeswitch] exporting to image
+#10 exporting layers done
+#10 exporting manifest sha256:141850759c09ae695a8b215d0c9a99a535c354a48aa7edbbda4b6a9baa2e5e98 done
+#10 exporting config sha256:88f104e2580c4ab50917d641a5bf15f3b696d86a7fd812fdc990d0c128d96993 done
+#10 exporting attestation manifest sha256:00ac8f0bfff79ce699a45765f5f4e80bd7332730f609838ce67c2a3326429975 0.0s done
+#10 exporting manifest list sha256:9e05d908223d8e1b55134f2a5a4e334e9bc35ad24dd19b5cf5c4221b992d17dd done
+#10 naming to docker.io/library/voip-platform-freeswitch:latest done
+#10 unpacking to docker.io/library/voip-platform-freeswitch:latest done
+#10 DONE 0.1s
+
+#11 [backend internal] load metadata for docker.io/library/node:22-slim
+#11 ...
+
+#12 [freeswitch] resolving provenance for metadata file
+#12 DONE 0.0s
+
+#11 [backend internal] load metadata for docker.io/library/node:22-slim
+#11 DONE 0.7s
+
+#13 [backend internal] load .dockerignore
+#13 transferring context: 2B done
+#13 DONE 0.0s
+
+#14 [backend build 1/7] FROM docker.io/library/node:22-slim@sha256:83f487e0a63425e5b4d146fb5e5be574bcbe1b7b843d3ebafdd95eaf7767a7e5
+#14 resolve docker.io/library/node:22-slim@sha256:83f487e0a63425e5b4d146fb5e5be574bcbe1b7b843d3ebafdd95eaf7767a7e5 0.0s done
+#14 DONE 0.0s
+
+#15 [backend internal] load build context
+#15 transferring context: 4.28kB done
+#15 DONE 0.0s
+
+#16 [backend stage-1 5/6] RUN npm install --omit=dev
+#16 CACHED
+
+#17 [backend build 5/7] COPY tsconfig.json nest-cli.json ./
+#17 CACHED
+
+#18 [backend build 6/7] COPY src ./src
+#18 CACHED
+
+#19 [backend stage-1 3/6] RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg && rm -rf /var/lib/apt/lists/*
+#19 CACHED
+
+#20 [backend build 2/7] WORKDIR /app
+#20 CACHED
+
+#21 [backend build 3/7] COPY package.json ./
+#21 CACHED
+
+#22 [backend stage-1 4/6] COPY package.json ./
+#22 CACHED
+
+#23 [backend build 4/7] RUN npm install
+#23 CACHED
+
+#24 [backend build 7/7] RUN npm run build
+#24 CACHED
+
+#25 [backend stage-1 6/6] COPY --from=build /app/dist ./dist
+#25 CACHED
+
+#26 [backend] exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:6cfdfe8ef54dda00a29a4e7eebc86799b8258e3aa2649ced13c521894138d24d done
+#26 exporting config sha256:9776794d0e570dab4ce4a21173565f84be9cb453755d1113038f58016e250e12 done
+#26 exporting attestation manifest sha256:d2b69b9954c3b0b5c5ef116114d46b5a35a49d7558e7ca06666063bbef44fce7 0.0s done
+#26 exporting manifest list sha256:92ccd2fc30355fc1a4d28d739aa87bbd5cc3a37f0f9c7d5d3ee2bc33f013742d done
+#26 naming to docker.io/library/voip-platform-backend:latest done
+#26 unpacking to docker.io/library/voip-platform-backend:latest done
+#26 DONE 0.1s
+
+#27 [backend] resolving provenance for metadata file
+#27 DONE 0.0s
+
+#28 [frontend internal] load build definition from Dockerfile
+#28 transferring dockerfile: 466B done
+#28 DONE 0.0s
+
+#29 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#29 DONE 0.0s
+
+#11 [frontend internal] load metadata for docker.io/library/node:22-slim
+#11 DONE 0.8s
+
+#30 [frontend internal] load .dockerignore
+#30 transferring context: 2B done
+#30 DONE 0.0s
+
+#31 [frontend internal] load build context
+#31 transferring context: 125.52kB done
+#31 DONE 0.0s
+
+#14 [frontend build 1/6] FROM docker.io/library/node:22-slim@sha256:83f487e0a63425e5b4d146fb5e5be574bcbe1b7b843d3ebafdd95eaf7767a7e5
+#14 resolve docker.io/library/node:22-slim@sha256:83f487e0a63425e5b4d146fb5e5be574bcbe1b7b843d3ebafdd95eaf7767a7e5 0.0s done
+#14 DONE 0.1s
+
+#20 [frontend build 2/6] WORKDIR /app
+#20 CACHED
+
+#32 [frontend build 3/6] COPY package.json ./
+#32 CACHED
+
+#33 [frontend build 4/6] RUN npm install
+#33 CACHED
+
+#34 [frontend stage-1 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#34 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 0.0s done
+#34 DONE 0.0s
+
+#35 [frontend build 5/6] COPY . .
+#35 DONE 0.0s
+
+#36 [frontend build 6/6] RUN npm run build
+#36 0.324 
+#36 0.324 > voip-platform-frontend@0.1.0 build
+#36 0.324 > tsc -b && vite build
+#36 0.324 
+#36 3.461 vite v5.4.21 building for production...
+#36 3.503 transforming...
+#36 5.823 ✓ 138 modules transformed.
+#36 6.106 rendering chunks...
+#36 6.113 computing gzip size...
+#36 6.128 dist/index.html                   0.49 kB │ gzip:   0.32 kB
+#36 6.129 dist/assets/index-ak0QKgXa.css   15.22 kB │ gzip:   3.68 kB
+#36 6.129 dist/assets/index-C2mv860k.js   510.85 kB │ gzip: 131.07 kB
+#36 6.129 
+#36 6.129 (!) Some chunks are larger than 500 kB after minification. Consider:
+#36 6.129 - Using dynamic import() to code-split the application
+#36 6.129 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+#36 6.129 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+#36 6.129 ✓ built in 2.65s
+#36 DONE 6.2s
+
+#34 [frontend stage-1 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#34 CACHED
+
+#37 [frontend stage-1 2/3] COPY --from=build /app/dist /usr/share/nginx/html
+#37 DONE 0.0s
+
+#38 [frontend stage-1 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#38 DONE 0.0s
+
+#39 [frontend] exporting to image
+#39 exporting layers 0.1s done
+#39 exporting manifest sha256:d4713aa72901244085348dd990803281e7fdd14bb817f36ad8a0c893e28b4f68 0.0s done
+#39 exporting config sha256:4130734fd01b1f870477d327e5a28d8505fb898809bdd7c92a81297ec3c4259c done
+#39 exporting attestation manifest sha256:979cc23cffeee87807520c29d18dd84d535777c8989be10703bd823762151e11 0.0s done
+#39 exporting manifest list sha256:cfdf62797ba4166c3cfb21b7a84791aae93a1aba0bbe834995647006ea13b93f done
+#39 naming to docker.io/library/voip-platform-frontend:latest done
+#39 unpacking to docker.io/library/voip-platform-frontend:latest 0.0s done
+#39 DONE 0.2s
+
+#40 [frontend] resolving provenance for metadata file
+#40 DONE 0.0s
+ backend  Built
+ freeswitch  Built
+ frontend  Built
+ Container voip-platform-estado-1  Running
+ Container voip-platform-redis-1  Running
+ Container voip-platform-freeswitch-1  Recreate
+ Container voip-platform-postgres-1  Running
+ Container voip-platform-adminer-1  Running
+ Container voip-platform-backend-1  Recreate
+ Container voip-platform-freeswitch-1  Recreated
+ Container voip-platform-backend-1  Recreated
+ Container voip-platform-frontend-1  Recreate
+ Container voip-platform-frontend-1  Recreated
+ Container voip-platform-fs-certs-1  Starting
+ Container voip-platform-postgres-1  Waiting
+ Container voip-platform-fs-certs-1  Started
+ Container voip-platform-fs-certs-1  Waiting
+ Container voip-platform-postgres-1  Healthy
+ Container voip-platform-backend-1  Starting
+ Container voip-platform-fs-certs-1  Exited
+ Container voip-platform-freeswitch-1  Starting
+ Container voip-platform-backend-1  Started
+ Container voip-platform-frontend-1  Starting
+ Container voip-platform-freeswitch-1  Started
+ Container voip-platform-frontend-1  Started
+2026-09-04 15:18:53Z  Contenedores levantados.
+2026-09-04 15:19:23Z  --- Estado de los contenedores ---
+NAME                         IMAGE                      COMMAND                  SERVICE      CREATED          STATUS                    PORTS
+voip-platform-adminer-1      adminer:4                  "entrypoint.sh docke…"   adminer      5 weeks ago      Up 5 weeks                0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp
+voip-platform-backend-1      voip-platform-backend      "docker-entrypoint.s…"   backend      44 seconds ago   Up 33 seconds             0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp
+voip-platform-estado-1       nginx:1.27-alpine          "/docker-entrypoint.…"   estado       26 hours ago     Up 26 hours               0.0.0.0:8090->80/tcp, [::]:8090->80/tcp
+voip-platform-freeswitch-1   voip-platform-freeswitch   "/usr/local/bin/entr…"   freeswitch   44 seconds ago   Up 32 seconds (healthy)   0.0.0.0:5060-5061->5060-5061/tcp, 0.0.0.0:5060->5060/udp, [::]:5060-5061->5060-5061/tcp, [::]:5060->5060/udp, 0.0.0.0:5080->5080/tcp, [::]:5080->5080/tcp, 0.0.0.0:5080->5080/udp, [::]:5080->5080/udp, 0.0.0.0:7443->7443/tcp, 0.0.0.0:16384-16484->16384-16484/udp, [::]:7443->7443/tcp, [::]:16384-16484->16384-16484/udp, 8021/tcp
+voip-platform-frontend-1     voip-platform-frontend     "/docker-entrypoint.…"   frontend     34 seconds ago   Up 32 seconds             0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+voip-platform-postgres-1     postgres:16-alpine         "docker-entrypoint.s…"   postgres     5 weeks ago      Up 5 weeks (healthy)      5432/tcp
+voip-platform-redis-1        redis:7-alpine             "docker-entrypoint.s…"   redis        5 weeks ago      Up 5 weeks                6379/tcp
+2026-09-04 15:19:23Z  --- Diagnostico de la centralita ---
+
+[1m1. Contenedores[0m
+  [32m[OK][0m    freeswitch está en marcha
+NAME                         IMAGE                      COMMAND                  SERVICE      CREATED          STATUS                    PORTS
+voip-platform-adminer-1      adminer:4                  "entrypoint.sh docke…"   adminer      5 weeks ago      Up 5 weeks                0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp
+voip-platform-backend-1      voip-platform-backend      "docker-entrypoint.s…"   backend      45 seconds ago   Up 33 seconds             0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp
+voip-platform-estado-1       nginx:1.27-alpine          "/docker-entrypoint.…"   estado       26 hours ago     Up 26 hours               0.0.0.0:8090->80/tcp, [::]:8090->80/tcp
+voip-platform-freeswitch-1   voip-platform-freeswitch   "/usr/local/bin/entr…"   freeswitch   45 seconds ago   Up 33 seconds (healthy)   0.0.0.0:5060-5061->5060-5061/tcp, 0.0.0.0:5060->5060/udp, [::]:5060-5061->5060-5061/tcp, [::]:5060->5060/udp, 0.0.0.0:5080->5080/tcp, [::]:5080->5080/tcp, 0.0.0.0:5080->5080/udp, [::]:5080->5080/udp, 0.0.0.0:7443->7443/tcp, 0.0.0.0:16384-16484->16384-16484/udp, [::]:7443->7443/tcp, [::]:16384-16484->16384-16484/udp, 8021/tcp
+voip-platform-frontend-1     voip-platform-frontend     "/docker-entrypoint.…"   frontend     35 seconds ago   Up 33 seconds             0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+voip-platform-postgres-1     postgres:16-alpine         "docker-entrypoint.s…"   postgres     5 weeks ago      Up 5 weeks (healthy)      5432/tcp
+voip-platform-redis-1        redis:7-alpine             "docker-entrypoint.s…"   redis        5 weeks ago      Up 5 weeks                6379/tcp
+
+[1m2. Certificados TLS (teléfono web)[0m
+  [32m[OK][0m    wss.pem presente
+  [32m[OK][0m    agent.pem presente (SIP TLS)
+
+[1m3. Núcleo de FreeSWITCH[0m
+  [32m[OK][0m    responde a fs_cli
+      UP 0 years, 0 days, 0 hours, 0 minutes, 30 seconds, 599 milliseconds, 921 microseconds
+      FreeSWITCH (Version 1.10.12 -release-10222002881-a88d069d6fgit a88d069 2024-08-02 21:02:27Z 64bit) is ready
+      2 session(s) since startup
+      0 session(s) - peak 1, last 5min 1 
+      0 session(s) per Sec out of max 30, peak 1, last 5min 1 
+      1000 session(s) max
+      min idle cpu 0.00/96.20
+      Current Stack Size/Max 240K/8192K
+
+[1m4. IP pública anunciada en el SDP[0m
+  [32m[OK][0m    external_rtp_ip = 159.69.215.51
+
+[1m5. Perfiles SIP[0m
+                           Name	   Type	                                      Data	State
+      =================================================================================================
+                       external	profile	          sip:mod_sofia@159.69.215.51:5080	RUNNING (0)
+         external::wholetelecom	gateway	        sip:FreeSWITCH@144.76.220.169:5060	NOREG
+                       internal	profile	          sip:mod_sofia@159.69.215.51:5060	RUNNING (0)
+                       internal	profile	          sip:mod_sofia@159.69.215.51:5061	RUNNING (0) (TLS)
+      =================================================================================================
+      2 profiles 0 aliases
+  [32m[OK][0m    perfil 'internal' arrancado (extensiones)
+  [32m[OK][0m    perfil 'external' arrancado (proveedores)
+
+[1m6. Event Socket (por donde habla el panel con la centralita)[0m
+  [33m[AVISO][0m no se ha podido comprobar con nc; revisa: docker compose logs backend | grep ESL
+      backend-1  | [31m[Nest] 1  - [39m09/04/2026, 3:18:52 PM [31m  ERROR[39m [38;5;3m[FreeswitchService] [39m[31mError de conexión ESL: connect ECONNREFUSED 10.42.0.7:8021[39m
+      backend-1  | [32m[Nest] 1  - [39m09/04/2026, 3:18:57 PM [32m    LOG[39m [38;5;3m[FreeswitchService] [39m[32mConectado a FreeSWITCH ESL en freeswitch:8021[39m
+
+[1m7. Configuración generada por el panel[0m
+      directory: 1 ficheros
+      dialplan/public/dinamico: 1 ficheros
+      dialplan/default/dinamico: 2 ficheros
+      sip_profiles/external: 2 ficheros
+
+[1m8. Registros SIP activos[0m
+      
+      Registrations:
+      =================================================================================================
+      Total items returned: 0
+      =================================================================================================
+      
+
+[1mResumen[0m
+  [32mTodo correcto: 0 fallos.[0m
+2026-09-04 15:19:25Z  === v15 desplegada correctamente ===
